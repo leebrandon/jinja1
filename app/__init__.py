@@ -13,7 +13,8 @@ class RegexConverter(BaseConverter):
 
 app.url_map.converters['regex'] = RegexConverter
 
-app.config['MEDIA_FOLDER'] = '/Users/blee/workspace/blee/jinja1/media'
+app.config.from_pyfile("settings.cfg")
+app.config['MEDIA_FOLDER'] = '/Users/blee/workspace/blee/jag/media'
 app.config['MEDIA_URL'] = '/media/'
 
 thumb = Thumbnail(app)
