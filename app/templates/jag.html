@@ -28,7 +28,7 @@ $(document).ready(function () {
     <div class="panel panel-default">
       <div class="panel-heading">Filter by host</div>
       <div class="pabel-body">
-        <a class="btn {% if current_host == None %}btn-primary{% else %}btn-default{% endif %}" href="/jag" role="button">All Jenkins Masters</a>
+        <a class="btn {% if current_host == None %}btn-primary{% else %}btn-default{% endif %}" href="jag" role="button">All Jenkins Masters</a>
         {% for host in hosts %}
           <a class="btn btn-default {% if host == current_host %}btn-success{% else %}btn-default{% endif %}" href="?master={{ host }}" role="button">{{ host }}</a>
         {% endfor %}
