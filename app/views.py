@@ -73,3 +73,27 @@ def jag():
                            hosts=app.config['JENKINS_URLS'],
                            items=allJobsList,
                            statuses=allStatuses)
+
+
+@app.route('/autoc')
+def autoc():
+    return render_template('autoc.html')
+
+
+@app.route('/viewer')
+def viewer():
+    allItems = {}
+    componentInfo = {}
+    with open('./app/example.json') as fh:
+        jsonData = json.load(fh)
+
+    for components in jsonData['components']:
+        print components['ecosystems']
+        allItems[components['name']] = components['ecosystems']
+        componentInfo[components['name']] = components['version']
+
+    print componentInfo
+    return render_template('viewer.html',
+                           title='Package viewer',
+                           items=allItems,
+                           info=componentInfo)
